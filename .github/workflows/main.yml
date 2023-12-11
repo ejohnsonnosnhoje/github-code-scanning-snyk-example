@@ -25,4 +25,7 @@ jobs:
         outputSarifFile: snyk.processed.sarif
         githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: snyk.processed.sarif
